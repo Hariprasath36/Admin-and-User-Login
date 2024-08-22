@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .header {
+            background-color: #0e2433;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .sidebar {
+            background-color: #45b6fe;
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+
+        .sidebar a {
+            display: block;
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+            font-size: 18px;
+            margin: 5px 0;
+        }
+
+        .sidebar a:hover {
+            background-color: #0e2433;
+        }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            height: 100vh;
+        }
+
+        .welcome-msg {
+            font-size: 24px;
+            color: #0e2433;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>User Dashboard</h1>
+    </div>
+
+
+    <div class="main-content">
+        <h2 class="welcome-msg">Welcome, [[${user.getFullname()}]]</h2>
+        <p>This is your dashboard where you can manage your account and view statistics.</p>
+        <span sec:authorize="isAuthenticated">
+        <a th:href="@{/logout}">
+        Logout</a>
+        
+        </span>
+    </div>
+
+</body>
+</html>
